@@ -102,3 +102,31 @@ function getFilter() {
     document.querySelector("#district").appendChild(qwe);
   }
 }
+
+function countplus(event) {
+  let qwe = event.target.closest("div");    
+  let count = qwe.querySelector('span')
+  count.innerHTML++;
+
+}
+
+function countmin(event) {
+  let qwe = event.target.closest("div");    
+  let count = qwe.querySelector('span')
+  if (count.innerHTML>0)
+      count.innerHTML--;
+
+}
+
+window.onload = function() {
+  getRestaurants().then(renderRecords);
+  document.querySelector("#find").onclick = filterRecords;
+
+  for (let btn of document.querySelectorAll(".btn-pls")) {
+      btn.onclick = countplus;
+  }
+  for (let btn of document.querySelectorAll(".btn-mns")) {
+      btn.onclick = countmin;
+  }
+
+};
