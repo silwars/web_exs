@@ -1,0 +1,21 @@
+
+header{
+    background-color: #89d6b1;
+}
+.modal{
+    background-color: #89d6b1;
+}
+
+.btn{
+    background-color: #8c5230;
+    color: aliceblue;
+}
+
+.alert{
+    background-color: #e8c8e2;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    width: 100%;
+}
