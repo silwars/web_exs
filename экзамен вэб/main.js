@@ -70,7 +70,7 @@ function calculate() {
   }
 
   document.querySelector(".total").innerHTML = total;
-  console.log(total);
+  // console.log(total);
 }
 
 function clearSets() {
@@ -103,10 +103,11 @@ function disableCheckBoxes() {
 function checkMods(){
   calculate();
   let FastDelivery = document.getElementById("fast-delivery");
-  // let Hots = document.getElementById("hotter");
+  let Hots = document.getElementById("hotter");
   let TotalPrice = document.querySelector(".total");
   if (FastDelivery.checked) {TotalPrice.innerHTML*=1.2}
-  else calculate();
+  if (Hots.checked) {TotalPrice.innerHTML*=0.7}
+  else if ((FastDelivery.checked && Hots.checked)) calculate();
 }
 
 
@@ -257,4 +258,5 @@ window.onload = function() {
   getRestaurants().then(renderRecords);
   document.querySelector("#find").onclick = filterRecords;
   document.querySelector("#fast-delivery").onclick = checkMods;
+  document.querySelector("#hotter").onclick = checkMods;
 };
